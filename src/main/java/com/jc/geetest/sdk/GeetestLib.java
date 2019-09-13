@@ -168,9 +168,9 @@ public class GeetestLib {
      *
      * @return 1表示初始化成功，0表示初始化失败
      */
-    public int preProcess(HashMap<String, String> data) {
+    public int preProcess() {
 
-        if (registerChallenge(data) != 1) {
+        if (registerChallenge() != 1) {
 
             this.responseStr = this.getFailPreProcessRes();
             return 0;
@@ -186,25 +186,12 @@ public class GeetestLib {
      * 
      * @return 1表示注册成功，0表示注册失败
      */
-    private int registerChallenge(HashMap<String, String> data) {
+    private int registerChallenge() {
 
         try {
-            String userId = URLEncoder.encode(data.get("user_id"), "utf-8");
-            String clientType = URLEncoder.encode(data.get("client_type"), "utf-8");
-            String ipAddress = URLEncoder.encode(data.get("ip_address"), "utf-8");
 
             String getUrl = apiUrl + registerUrl + "?";
             String param = "gt=" + this.captchaId + "&json_format=" + this.json_format;
-
-            if (userId != null) {
-                param = param + "&user_id=" + userId;
-            }
-            if (clientType != null) {
-                param = param + "&client_type=" + clientType;
-            }
-            if (ipAddress != null) {
-                param = param + "&ip_address=" + ipAddress;
-            }
 
             gtlog("GET_URL:" + getUrl + param);
             String result_str = readContentFromGet(getUrl + param);
