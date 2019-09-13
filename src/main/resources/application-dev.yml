@@ -1,3 +1,12 @@
 
 server:
   port: 8888
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+
+geetest:
+  geetest-id: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  geetest-key: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
