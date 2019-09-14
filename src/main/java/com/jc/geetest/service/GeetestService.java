@@ -1,11 +1,13 @@
 package com.jc.geetest.service;
 
+import com.jc.geetest.sdk.entity.GeetestRegisterEntity;
+
 /**
  * GeetestService
  */
 public interface GeetestService {
 
-    String register();
+    GeetestRegisterEntity register();
 
-    Integer validate(String challenge, String validate, String seccode);
+    Boolean validate(String challenge, String validate, String seccode);
 }
